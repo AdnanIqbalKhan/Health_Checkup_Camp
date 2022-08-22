@@ -1,0 +1,68 @@
+@hostname = localhost
+@port = 3000
+@host = http://{{hostname}}:{{port}}
+@endpoint = slot
+
+
+
+
+GET {{host}}/{{endpoint}} HTTP/1.1
+
+###
+
+GET {{host}}/{{endpoint}}/63035de0872cd2b3eb452fdd HTTP/1.1
+
+###
+
+POST {{host}}/{{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+    "employeeId":"630330b120436ea02a2c52f7",
+    "venueId":"63035ccf6ff02bc512f6a7c0",
+    "scheduledAt": "10-28-2002-20:25",
+    "status":"ALLOCATED",
+    "notes": "random notes for employee slot"
+}
+
+
+###
+
+
+PUT {{host}}/{{endpoint}}/63035de0872cd2b3eb452fdd HTTP/1.1
+content-type: application/json
+
+{
+    "notes":"another note"
+}
+
+
+###
+
+DELETE  {{host}}/{{endpoint}}/63035de0872cd2b3eb452fdd HTTP/1.1
+
+
+###
+
+PUT {{host}}/{{endpoint}}/cancel/63035de0872cd2b3eb452fdd HTTP/1.1
+content-type: application/json
+
+{
+}
+
+###
+
+PUT {{host}}/{{endpoint}}/complete/63035de0872cd2b3eb452fdd HTTP/1.1
+content-type: application/json
+
+{
+}
+
+###
+
+PUT {{host}}/{{endpoint}}/reschedule/63035de0872cd2b3eb452fdd HTTP/1.1
+content-type: application/json
+
+{
+    "scheduledAt": "10-28-2022-20:25"
+}

@@ -1,0 +1,39 @@
+@hostname = localhost
+@port = 3000
+@host = http://{{hostname}}:{{port}}
+@endpoint = venue
+
+
+
+
+GET {{host}}/{{endpoint}} HTTP/1.1
+
+###
+
+GET {{host}}/{{endpoint}}/63035787e04e894eda6db6b4 HTTP/1.1
+
+###
+
+POST {{host}}/{{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+    "name": "ABC",
+    "location": "Islamabad"
+}
+
+
+###
+
+
+PUT {{host}}/{{endpoint}}/63035787e04e894eda6db6b4 HTTP/1.1
+content-type: application/json
+
+{
+    "location":"Karachi"
+}
+
+
+###
+
+DELETE  {{host}}/{{endpoint}}/63035787e04e894eda6db6b4 HTTP/1.1
